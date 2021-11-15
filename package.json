@@ -1,0 +1,33 @@
+{
+  "scripts": {
+    "start:dev": "nodemon",
+    "build": "rimraf ./build && tsc",
+    "start": "npm run build && node build/app.js"
+  },
+  "dependencies": {
+    "@types/node": "^16.11.6",
+    "axios": "^0.21.1",
+    "discord.js": "^13.3.0",
+    "dotenv": "^10.0.0",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.1",
+    "mustache": "^4.2.0",
+    "node-cache": "^5.1.2",
+    "nodemon": "^2.0.14",
+    "opossum": "^6.2.1",
+    "randomcolor": "^0.6.2",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.4.0",
+    "twitter-api-v2": "^1.6.5",
+    "typescript": "^4.4.4"
+  },
+  "engines": {
+    "node": "17.x"
+  },
+  "devDependencies": {
+    "@types/mustache": "^4.1.2",
+    "@types/opossum": "^6.2.0",
+    "@types/randomcolor": "^0.5.6",
+    "@types/twit": "^2.2.30"
+  }
+}

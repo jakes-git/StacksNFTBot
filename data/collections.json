@@ -1,0 +1,63 @@
+[
+  {
+    "name": "Megapont Ape Club",
+    "contractAddress": "SP3D6PV2ACBPEKYJTCMH7HEN02KP87QSP8KTEH335",
+    "contractName": "megapont-ape-club-nft",
+    "symbol": "https://www.megapont.com/images/logo.png",
+    "metadataURL": "https://megapont-api.herokuapp.com/api/megapont?skip=0&id={{action.nftID}}",
+    "metadataMethod": "post",
+    "metadataPath": "docs.0",
+    "imageURL": "{{nft.image}}",
+    "tweetTemplate": "'{{nft.name}} has been sold for {{price}} STX (${{usdPrice}} USD).\\n{{detailURL}}'",
+    "discordTemplate": {
+      "title": "action === 'purchase' ? '{{nft.name}} has been sold' : action === 'list' ? '{{nft.name}} has been listed for sale' : '{{nft.name}} has received an offer for purchase'",
+      "url": "'{{detailURL}}'",
+      "description": "'**Rarity**: {{nft.rank}}\\n**Price**: {{price}} STX (${{usdPrice}})'",
+      "fields": [
+        {
+          "name": "'Attributes'",
+          "value": "'[View](https://www.megapont.com/rarity?id={{nft.id}}&detail=true)'",
+          "inline": true
+        },
+        {
+          "name": "'Transaction'",
+          "value": "'[View](https://explorer.stacks.co/txid/{{action.txID}}?chain=mainnet)'",
+          "inline": true
+        },
+        {
+          "name": "event.tweetInfo ? 'Twitter' : '\u200B'",
+          "value": "event.tweetInfo ? '[View](https://www.twitter.com/{{tweetInfo.userID}}/status/{{tweetInfo.statusID}})' : '\u200B'",
+          "inline": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "The Explorer Guild",
+    "contractAddress": "SP2X0TZ59D5SZ8ACQ6YMCHHNR2ZN51Z32E2CJ173",
+    "contractName": "the-explorer-guild",
+    "symbol": "https://app.sigle.io/_next/image?url=%2Fstatic%2Fimg%2Flogo.png&w=256&q=75",
+    "metadataURL": "https://www.explorerguild.io/api/metadata/{{action.nftID}}.json",
+    "metadataMethod": "get",
+    "metadataPath": ".",
+    "imageURL": "{{nft.image}}",
+    "tweetTemplate": "'{{nft.name}} has been sold for {{price}} STX (${{usdPrice}} USD).\\n{{detailURL}}'",
+    "discordTemplate": {
+      "title": "action === 'purchase' ? '{{nft.name}} has been sold' : action === 'list' ? '{{nft.name}} has been listed for sale' : '{{nft.name}} has received an offer for purchase'",
+      "url": "'{{detailURL}}'",
+      "description": "'**Price**: {{price}} STX (${{usdPrice}})'",
+      "fields": [
+        {
+          "name": "'Transaction'",
+          "value": "'[View](https://explorer.stacks.co/txid/{{action.txID}}?chain=mainnet)'",
+          "inline": true
+        },
+        {
+          "name": "event.tweetInfo ? 'Twitter' : '\u200B'",
+          "value": "event.tweetInfo ? '[View](https://www.twitter.com/{{tweetInfo.userID}}/status/{{tweetInfo.statusID}})' : '\u200B'",
+          "inline": true
+        }
+      ]
+    }
+  }
+]
