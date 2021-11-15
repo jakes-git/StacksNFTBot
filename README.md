@@ -2,13 +2,18 @@
 
 Report marketplace actions (listings, purchases, and offers) for some [Blockstack](https://www.stacks.co/) NFT collection to Discord/Twitter.
 
+## Media
+[View sample tweet](https://twitter.com/MegapontApeBot/status/1459968934858432512)
+
+![Sample Discord embed](https://user-images.githubusercontent.com/31711053/141709717-1f9ccb2d-46bb-41da-a7c5-c24afbf3bed1.png)
+
 ## Description
 
 This program will periodically query the [Stacks Blockchain API](https://hirosystems.github.io/stacks-blockchain-api/) to fetch NFT events for user defined NFT collections across user defined Marketplace contracts.
 
 ## Getting Started
 
-You will want to clone/fork this project to your own repo.
+You will want to create a new repo using this project as a template.
 
 ### Dependencies
 
@@ -40,6 +45,8 @@ There are two key files used for configuring the behavior of this app:
   - This file contains configurations for the different NFT collections you are interested in tracking. A configiguration here is used to specify the NFT contract address and name, templates for formatting Twitter and Discord messages, and instructions on where to fetch metadata and images.
 - [marketplaces.json](./data/marketplaces.json)
   - This file contains configurations for the different marketplace contracts to scan for events. A configuration here specifies how to parse a Blockstack transaction to extract necessary variables (collection contract, NFT ID, STX amount) for a given market action.
+
+Sample configurations have been provided for a few existing STX collections and marketplaces which should help you in creating any new configuration.
 
 Configurations use [eval](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval) and [mustache.js](https://github.com/janl/mustache.js/) for evaluating and rendering templates.
 
