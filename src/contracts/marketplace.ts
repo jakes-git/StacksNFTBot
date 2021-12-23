@@ -51,8 +51,7 @@ export class MarketplaceContract {
         return events;
       }
 
-      const response = await chainAPI.fire(contract.address, contractName);
-      const transactions: Transaction[] = response.data.results;
+      const transactions = await chainAPI.fire(contract.address, contractName, lastProcessedBlock)
 
       var hasSetCache = false;
 
