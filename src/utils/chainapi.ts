@@ -22,8 +22,7 @@ const getTransactions = async (
           offset: 50 * callCount,
           limit: 50,
           type: 'contract_call'
-        },
-        timeout: 15000
+        }
       }
     );
     callCount++;
@@ -37,7 +36,7 @@ const getTransactions = async (
         tx.push(transaction);
         dedupe.add(transaction.tx_id)
       } else {
-        break;
+        return tx;
       }
     }
   }
@@ -46,7 +45,7 @@ const getTransactions = async (
 };
 
 export const chainAPI = new CircuitBreaker(getTransactions, {
-  timeout: false,
+  timeout: 20000,
   errorThresholdPercentage: 51,
   rollingCountTimeout: constants.MARKET_SEARCH_INTERVAL * 10,
   rollingCountBuckets: 10,
